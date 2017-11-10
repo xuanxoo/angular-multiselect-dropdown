@@ -1,0 +1,37 @@
+<div id="multiselect-container">
+    <div class="input-group">
+        <input #searchBox 
+               i18n-placeholder
+               [readonly]="!isFilterable"
+               [placeholder]="(isPopupOpen || isSearchInputFocused) && isFilterable ? 'Search...' : ''" 
+               class="form-control" 
+               [(ngModel)]="searchText"
+               (input)="filterDataItems()" 
+               (blur)="isSearchInputFocused = false" 
+               (focus)="isSearchInputFocused = true" 
+               (click)="openPopup()"/>
+        <span *ngIf="(!isPopupOpen && !isSearchInputFocused) || !isFilterable" id="selection-label" i18n>{{selectedData.length}} selected</span> 
+        <span class="input-group-btn">
+            <button type="button" 
+                    (click)="togglePopup()" 
+                    class="btn btn-secondary dropdown-toggle dropdown-toggle-split" 
+                    aria-haspopup="true" 
+                    aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+        </span>
+    </div>
+    <div class="dropdown-menu" [class.show]="isPopupOpen">
+        <span i18n class="dropdown-item" *ngIf="!areAllItemsSelected" (click)="selectAllItems()">Select all</span>
+        <span i18n class="dropdown-item" *ngIf="areAllItemsSelected" (click)="deselectAllItems()">Select nothing</span>
+        <div class="dropdown-divider"></div>
+        <ng-container *ngFor="let item of dataContainer">
+            <span *ngIf="!item.isFiltered" 
+                  class="dropdown-item" 
+                  [class.selected]="item.isSelected" 
+                  (click)="toggleItemSelection(item)">
+                  {{displayField ? item.model[displayField] : item.model}}
+            </span>
+        </ng-container>
+    </div>
+</div>
