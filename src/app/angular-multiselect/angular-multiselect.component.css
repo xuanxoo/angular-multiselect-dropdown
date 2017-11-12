@@ -247,6 +247,63 @@ button, input, optgroup, select, textarea {
     overflow: hidden;
     background-color: #eceeef;
 }
+.item-delete {
+    bottom: 1px;
+    cursor: default;
+    display: inline-block;
+    height: 16px;
+    line-height: 1;
+    position: absolute;
+    right: 8px;
+    width: 16px;
+    vertical-align: text-bottom;
+}
+.multiselect-container>.representation .item-row .item-delete:after {
+    bottom: 0;
+    content: '\00d7';
+    display: inline;
+    font-size: 15px;
+    line-height: 1;
+    left: 3px;
+    padding: 0 1px;
+    position: absolute;
+    speak: none;
+    text-align: center;
+    vertical-align: text-bottom;
+}
+
+.multiselect-container>.representation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.multiselect-container>.representation .item-row {
+    display: inline-block;
+    height: 18px;
+    margin: 0;
+    max-width: 100%;
+    padding: 1px 0;
+    padding-right: 3px;
+    padding-top: 3px;
+    pointer-events: auto;
+    position: relative;
+    vertical-align: top;
+}
+
+.multiselect-container>.representation .item-row>.value-item {
+    border-width: 1px;
+    border-style: solid;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    height: 100%;
+    line-height: 1;
+    margin: 1px;
+    max-width: 100%;
+    padding: 0 5px;
+    padding-right: 20px;
+    vertical-align: top;
+}
 
 #multiselect-container {
     position: relative;

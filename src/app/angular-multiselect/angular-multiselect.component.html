@@ -1,4 +1,20 @@
-<div id="multiselect-container">
+<div id="multiselect-container" class="multiselect-container">
+    <div class="representation">
+        <ul class="items" role="listbox">
+            <ng-container *ngFor="let item of selectedData">
+                <li class="item-row" role="option" aria-describedby="label-0">
+                    <button type="button" tabindex="-1" class="value-item">
+                            <span *ngIf="!item.isFiltered" 
+                                class="dropdown-item-selected"
+                                (click)="toggleItemSelection(item)">
+                                {{item}}
+                            </span>
+                    </button>
+                    <em class="item-delete" aria-label=" " title="" original-title=""></em>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
     <div class="input-group">
         <input #searchBox 
                i18n-placeholder
