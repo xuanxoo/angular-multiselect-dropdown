@@ -108,14 +108,14 @@ export class AngularMultiselectComponent implements OnChanges {
       if (!isClickedElementInside && this.isPopupOpen) {
           this.closePopup();
       }
-  }
+  } 
 
   public toggleItemSelection(item: SelectableData) {
 
       item.isSelected = !item.isSelected;
       this.selectedData = this.dataContainer
-                              .filter(item => item.isSelected)
-                              .map(item => this.valueField ? item.model[this.valueField] : item.model);
+                              .filter(item => item.isSelected);
+                              //.map(item => this.valueField ? item.model[this.valueField] : item.model);
       
       if (!this.updateSelectedDataOnClose) {
           this.selectedDataChange.emit(this.selectedData);
@@ -128,7 +128,7 @@ export class AngularMultiselectComponent implements OnChanges {
   public selectAllItems() {
 
       this.dataContainer.forEach(item => item.isSelected = true);
-      this.selectedData = this.availableData.slice(0).map(item => this.valueField ? item[this.valueField] : item);;
+      this.selectedData = this.dataContainer;//this.availableData.slice(0).map(item => item.model);//this.valueField ? item[this.valueField] : item);;
       this.selectedDataChange.emit(this.selectedData);
       this.areAllItemsSelected = true;
   }

@@ -258,7 +258,7 @@ button, input, optgroup, select, textarea {
     width: 16px;
     vertical-align: text-bottom;
 }
-.multiselect-container>.representation .item-row .item-delete:after {
+.multiselect-container .representation .item-row .item-delete:after {
     bottom: 0;
     content: '\00d7';
     display: inline;
@@ -272,12 +272,24 @@ button, input, optgroup, select, textarea {
     vertical-align: text-bottom;
 }
 
-.multiselect-container>.representation ul {
+.multiselect-container .representation {
+    position: absolute;
+    padding: 0.5rem 0.75rem;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.multiselect-container .representation ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-.multiselect-container>.representation .item-row {
+.multiselect-container .representation .item-row {
     display: inline-block;
     height: 18px;
     margin: 0;
@@ -290,7 +302,7 @@ button, input, optgroup, select, textarea {
     vertical-align: top;
 }
 
-.multiselect-container>.representation .item-row>.value-item {
+.multiselect-container .representation .item-row>.value-item {
     border-width: 1px;
     border-style: solid;
     font-family: inherit;
